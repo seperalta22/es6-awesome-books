@@ -16,6 +16,9 @@ devDependencies:
   hint:
     specifier: 7.x
     version: 7.1.8(typescript@5.0.4)
+  luxon:
+    specifier: ^3.3.0
+    version: 3.3.0
   stylelint:
     specifier: 13.x
     version: 13.13.1
@@ -4618,6 +4621,11 @@ packages:
   /lru-cache@9.1.1:
     resolution: {integrity: sha512-65/Jky17UwSb0BuB9V+MyDpsOtXKmYwzhyl+cOa9XUiI4uV2Ouy/2voFP3+al0BjZbJgMBD8FojMpAf+Z+qn4A==}
     engines: {node: 14 || >=16.14}
+    dev: true
+
+  /luxon@3.3.0:
+    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+    engines: {node: '>=12'}
     dev: true
 
   /make-dir@3.1.0:

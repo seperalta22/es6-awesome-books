@@ -1,4 +1,9 @@
 import BookList from './modules/bookList.js';
+import {
+  displayAddNewSection,
+  displayContactSection,
+  displayListSection,
+} from './modules/displayPage.js';
 
 const booksContainer = document.querySelector('.books');
 const form = document.getElementById('addBook');
@@ -27,3 +32,7 @@ booksContainer.addEventListener('click', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   bookList.displayBooks();
 });
+
+displayListSection();
+displayAddNewSection();
+displayContactSection();
