@@ -16,6 +16,7 @@ const bookList = new BookList();
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const book = {
+    id: Date.now(),
     title: title.value,
     author: author.value,
   };
@@ -24,9 +25,8 @@ form.addEventListener('submit', (e) => {
 
 booksContainer.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
-    bookList.removeBook(
-      e.target.previousElementSibling.previousElementSibling.textContent,
-    );
+		bookList.removeBook(parseInt(e.target.dataset.id)); //eslint-disable-line
+    e.target.parentElement.remove();
   }
 });
 

@@ -1,5 +1,4 @@
 const booksContainer = document.querySelector('.books');
-
 export default class BookList {
   constructor() {
     this.books = [];
@@ -8,24 +7,26 @@ export default class BookList {
   addBook(book) {
     if (localStorage.getItem('localData') === null) {
       localStorage.setItem('localData', JSON.stringify([]));
-      this.books.push(book);
+      this.books.push({
+        ...book,
+        id: Date.now(),
+      });
       localStorage.setItem('localData', JSON.stringify(this.books));
       window.location = window.location.pathname;
     } else {
       this.books = JSON.parse(localStorage.getItem('localData'));
-      this.books.push(book);
+      this.books.push({
+        ...book,
+        id: Date.now(),
+      });
       localStorage.setItem('localData', JSON.stringify(this.books));
       window.location = window.location.pathname;
     }
   }
 
-  removeBook(title) {
+  removeBook(id) {
     this.books = JSON.parse(localStorage.getItem('localData'));
-    this.books.forEach((book, index) => {
-      if (book.title === title) {
-        this.books.splice(index, 1);
-      }
-    });
+    this.books = this.books.filter((book) => book.id !== id);
     localStorage.setItem('localData', JSON.stringify(this.books));
     window.location = window.location.pathname;
   }
@@ -39,7 +40,7 @@ export default class BookList {
         div.innerHTML = `
               <h3 class="title" >${book.title}</h3>
               <p>by ${book.author}</p>
-              <button class="remove">Remove</button>
+              <button class="remove" data-id="${book.id}">Remove</button>
               `;
         booksContainer.appendChild(div);
       });
