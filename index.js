@@ -4,6 +4,7 @@ import {
   displayContactSection,
   displayListSection,
 } from './modules/displayPage.js';
+import dateTime from './modules/date.js';
 
 const booksContainer = document.querySelector('.books');
 const form = document.getElementById('addBook');
@@ -36,3 +37,4 @@ window.addEventListener('DOMContentLoaded', () => {
 displayListSection();
 displayAddNewSection();
 displayContactSection();
+dateTime();
